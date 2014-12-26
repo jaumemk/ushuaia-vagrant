@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # shared forlders "host path", "guest path"
     # ===============
-    config.vm.synced_folder "../data", "/vagrant"
+    config.vm.synced_folder "/Users/jaume/Sites", "/vagrant"
 
     # virtualbox conf
     # ===============
