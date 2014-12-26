@@ -4,31 +4,57 @@
 # docs memo     at https://docs.vagrantup.com
 # some boxes    at https://atlas.hashicorp.com/search
 
-Vagrant.configure(2) do |config|
+# variables
+# =========
+VAGRANTFILE_API_VERSION = "2"
 
-    config.vm.box = "hashicorp/precise64"
-    config.vm.hostname = "ushuaia"
+hostname = "ushuaia"
+ip_address = "192.168.10.4"
+memory = "512"
 
-    # config.vm.box_check_update = false
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+    # base box
+    # ===============
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.box_check_update = false
+
+    # port forwarding
+    # ===============
     # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-    config.vm.network "private_network", ip: "192.168.4.10"
+    # private network
+    # ===============
+    config.vm.network "private_network", ip: ip_address
+    config.vm.hostname = hostname
 
-    # Like another physical device on the network.
+    # public network / like another physical device on the network
+    # ==============
     # config.vm.network "public_network"
 
+    # shared forlders "host path", "guest path"
+    # ===============
     config.vm.synced_folder "../data", "/vagrant"
 
+    # virtualbox conf
+    # ===============
     config.vm.provider "virtualbox" do |vb|
-        # vb.gui = true
-        vb.memory = "512"
+        vb.memory = memory
+        vb.name = hostname
     end
 
+    # shell prov.
+    # ===============
     config.vm.provision :shell, path: "bootstrap.sh"
 
-    config.vm.provision "chef_solo" do |chef|
-        chef.add_recipe "apt"
-        chef.add_recipe "nginx::default"
+    # chef_solo prov. (for older versions of vagrant)
+    # ===============
+
+    config.librarian_chef.cheffile_dir = "/"
+
+    config.vm.provision :chef_solo do |chef|
+        chef.cookbooks_path = "cookbooks"
+        chef.add_recipe "git"
     end
 
 end
