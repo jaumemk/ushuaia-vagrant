@@ -1,0 +1,6 @@
+[submodule "vagrant/cookbooks/nginx"]
+	path = vagrant/cookbooks/nginx
+	url = https://github.com/miketheman/nginx.git
+[submodule "vagrant/cookbooks/apt"]
+	path = vagrant/cookbooks/apt
+	url = https://github.com/opscode-cookbooks/apt.git
