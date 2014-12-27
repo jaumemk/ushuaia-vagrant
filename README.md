@@ -8,17 +8,35 @@ With vagrant-librarian-chef we don't need to add cookbooks as a git submodule.
 ## Includes
 
 - Ubuntu 14.04
+- git
 - Chef (chef_solo used)
 - Nginx
-- Node (With Bower and Grunt)
 
+
+### Todo
+
+- nginx-fastcgi
+- php-fpm
+- php for command line
+- mysql
+- php extensions
+- composer
+- node/npm
+- bower and grunt
+- laravel installer?
 
 ## Requirements
 
 * vagrant [(download page)](https://vagrantup.com)
 * vagrant-librarian-chef [(a vagrant pluin)](https://github.com/jimmycuadra/vagrant-librarian-chef)
 
-* Note: older vagrant versions may need vagrant-omnibus plugin, to install latest chef version on the guest machine before provisioning. (config.omnibus.chef_version = :latest)
+### Optional
+
+- vagrant-omnibus pluin (ability to control the chef version)
+
+By default vagrant uses :latest, but sometimes we need to downgrade to run some recipes.
+
+memo: "config.omnibus.chef_version = :latest"
 
 ## Installation
 
