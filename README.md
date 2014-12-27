@@ -5,6 +5,14 @@ One of my personal virtual machine development environments. (Tested under OS X 
 
 With vagrant-librarian-chef we don't need to add cookbooks as a git submodule.
 
+## Includes
+
+- Ubuntu 14.04
+- Chef (chef_solo used)
+- Nginx
+- Node (With Bower and Grunt)
+
+
 ## Requirements
 
 * vagrant [(download page)](https://vagrantup.com)
@@ -14,7 +22,7 @@ With vagrant-librarian-chef we don't need to add cookbooks as a git submodule.
 
 ## Installation
 
-* Clone this git repo and "cd" to the vagrant folder and run/install:
+* Clone this git repo, "cd" to it and run/install:
 
 ``` bash
 vagrant plugin install vagrant-librarian-chef

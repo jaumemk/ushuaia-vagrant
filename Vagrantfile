@@ -58,6 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision :chef_solo do |chef|
         chef.cookbooks_path = "cookbooks"
         chef.add_recipe "git"
+        chef.add_recipe "nginx"
     end
 
 end
