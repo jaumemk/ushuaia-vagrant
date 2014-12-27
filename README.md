@@ -19,5 +19,8 @@ With vagrant-librarian-chef we don't need to add cookbooks as a git submodule.
 ``` bash
 vagrant plugin install vagrant-librarian-chef
 ```
+
+* Remember to set a shared folder in your host machine. (by default is set to the same as Vagrantfile path)
+
 * Run "vagrant up"
     - vagrant-librarian-chef, will read the Cheffile and download all the cookbooks.

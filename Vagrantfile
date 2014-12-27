@@ -12,6 +12,9 @@ hostname = "ushuaia"
 ip_address = "192.168.10.4"
 memory = "512"
 
+# specify any relative (../data) or absolute local (/Users/my_username/Sites) path
+shared_folder = "/"
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # base box
@@ -34,7 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # shared forlders "host path", "guest path"
     # ===============
-    config.vm.synced_folder "/Users/jaume/Sites", "/vagrant"
+    config.vm.synced_folder shared_folder, "/vagrant"
 
     # virtualbox conf
     # ===============
